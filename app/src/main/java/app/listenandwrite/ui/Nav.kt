@@ -93,7 +93,11 @@ fun ListenNav() {
             SummaryScreen(
                 onBack = { nav.popBackStack() },
                 onAgain = { nav.navigate("session") },
+                onGrade = { nav.navigate("grade") },
             )
+        }
+        composable("grade") {
+            GradeScreen(onBack = { nav.popBackStack() })
         }
     }
 }

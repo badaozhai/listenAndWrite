@@ -1,0 +1,254 @@
+key	example	print	script	messy	wrong	messySeen	wrongSeen	messyIndex
+habit	habit	print/habit.png	script/habit.png	messy/habit.png	wrong/habit.png	haeit	haeit	2
+doexercise	do exercise	print/doexercise.png	script/doexercise.png	messy/doexercise.png	wrong/doexercise.png	doexeecise	doexeecise	5
+listen	listen	print/listen.png	script/listen.png	messy/listen.png	wrong/listen.png	liseen	liseen	3
+carefully	carefully	print/carefully.png	script/carefully.png	messy/carefully.png	wrong/carefully.png	careeully	careeully	4
+putinorder	put ... in order	print/putinorder.png	script/putinorder.png	messy/putinorder.png	wrong/putinorder.png	putinerder	putinerder	5
+takenotes	take notes	print/takenotes.png	script/takenotes.png	messy/takenotes.png	wrong/takenotes.png	takeeotes	takeeotes	4
+tidy	tidy	print/tidy.png	script/tidy.png	messy/tidy.png	wrong/tidy.png	tiey	tiey	2
+waitaminute	wait a minute	print/waitaminute.png	script/waitaminute.png	messy/waitaminute.png	wrong/waitaminute.png	waitaeinute	waitaeinute	5
+never	never	print/never.png	script/never.png	messy/never.png	wrong/never.png	neeer	neeer	2
+inclass	in class	print/inclass.png	script/inclass.png	messy/inclass.png	wrong/inclass.png	inceass	inceass	3
+dowell	do well	print/dowell.png	script/dowell.png	messy/dowell.png	wrong/dowell.png	dowall	dowall	3
+verymuch	very much	print/verymuch.png	script/verymuch.png	messy/verymuch.png	wrong/verymuch.png	veryeuch	veryeuch	4
+alotof	a lot of	print/alotof.png	script/alotof.png	messy/alotof.png	wrong/alotof.png	aloeof	aloeof	3
+often	often	print/often.png	script/often.png	messy/often.png	wrong/often.png	ofeen	ofeen	2
+inbed	in bed	print/inbed.png	script/inbed.png	messy/inbed.png	wrong/inbed.png	ineed	ineed	2
+bad	bad	print/bad.png	script/bad.png	messy/bad.png	wrong/bad.png	bed	bed	1
+healthy	healthy	print/healthy.png	script/healthy.png	messy/healthy.png	wrong/healthy.png	heaethy	heaethy	3
+late	late	print/late.png	script/late.png	messy/late.png	wrong/late.png	laee	laee	2
+health	health	print/health.png	script/health.png	messy/health.png	wrong/health.png	heaeth	heaeth	3
+card	card	print/card.png	script/card.png	messy/card.png	wrong/card.png	caed	caed	2
+itsyourturn	It's your turn.	print/itsyourturn.png	script/itsyourturn.png	messy/itsyourturn.png	wrong/itsyourturn.png	itsyoerturn	itsyoerturn	5
+feelgood	feel good	print/feelgood.png	script/feelgood.png	messy/feelgood.png	wrong/feelgood.png	feeleood	feeleood	4
+worried	worried	print/worried.png	script/worried.png	messy/worried.png	wrong/worried.png	woreied	woreied	3
+excited	excited	print/excited.png	script/excited.png	messy/excited.png	wrong/excited.png	exceted	exceted	3
+thehighjump	the high jump	print/thehighjump.png	script/thehighjump.png	messy/thehighjump.png	wrong/thehighjump.png	thehiehjump	thehiehjump	5
+hard	hard	print/hard.png	script/hard.png	messy/hard.png	wrong/hard.png	haed	haed	2
+ouch	ouch	print/ouch.png	script/ouch.png	messy/ouch.png	wrong/ouch.png	oueh	oueh	2
+like	like	print/like.png	script/like.png	messy/like.png	wrong/like.png	liee	liee	2
+welldone	Well done!	print/welldone.png	script/welldone.png	messy/welldone.png	wrong/welldone.png	welleone	welleone	4
+yeah	yeah	print/yeah.png	script/yeah.png	messy/yeah.png	wrong/yeah.png	yeeh	yeeh	2
+or	or	print/or.png	script/or.png	messy/or.png	wrong/or.png	oe	oe	1
+hear	hear	print/hear.png	script/hear.png	messy/hear.png	wrong/hear.png	heer	heer	2
+sometimes	sometimes	print/sometimes.png	script/sometimes.png	messy/sometimes.png	wrong/sometimes.png	someeimes	someeimes	4
+then	then	print/then.png	script/then.png	messy/then.png	wrong/then.png	than	than	2
+teach	teach	print/teach.png	script/teach.png	messy/teach.png	wrong/teach.png	teech	teech	2
+write	write	print/write.png	script/write.png	messy/write.png	wrong/write.png	wrete	wrete	2
+word	word	print/word.png	script/word.png	messy/word.png	wrong/word.png	woed	woed	2
+hand	hand	print/hand.png	script/hand.png	messy/hand.png	wrong/hand.png	haed	haed	2
+understand	understand	print/understand.png	script/understand.png	messy/understand.png	wrong/understand.png	underetand	underetand	5
+giveup	give up	print/giveup.png	script/giveup.png	messy/giveup.png	wrong/giveup.png	givaup	givaup	3
+other	other	print/other.png	script/other.png	messy/other.png	wrong/other.png	oteer	oteer	2
+fast	fast	print/fast.png	script/fast.png	messy/fast.png	wrong/fast.png	faet	faet	2
+speak	speak	print/speak.png	script/speak.png	messy/speak.png	wrong/speak.png	spaak	spaak	2
+study	study	print/study.png	script/study.png	messy/study.png	wrong/study.png	stedy	stedy	2
+know	know	print/know.png	script/know.png	messy/know.png	wrong/know.png	knew	knew	2
+when	when	print/when.png	script/when.png	messy/when.png	wrong/when.png	whan	whan	2
+hobby	hobby	print/hobby.png	script/hobby.png	messy/hobby.png	wrong/hobby.png	hoeby	hoeby	2
+dance	dance	print/dance.png	script/dance.png	messy/dance.png	wrong/dance.png	daece	daece	2
+papercutting	paper-cutting	print/papercutting.png	script/papercutting.png	messy/papercutting.png	wrong/papercutting.png	papercetting	papercetting	6
+gift	gift	print/gift.png	script/gift.png	messy/gift.png	wrong/gift.png	giet	giet	2
+her	her	print/her.png	script/her.png	messy/her.png	wrong/her.png	har	har	1
+skip	skip	print/skip.png	script/skip.png	messy/skip.png	wrong/skip.png	skep	skep	2
+idontthinkso	I don't think so.	print/idontthinkso.png	script/idontthinkso.png	messy/idontthinkso.png	wrong/idontthinkso.png	idontteinkso	idontteinkso	6
+make	make	print/make.png	script/make.png	messy/make.png	wrong/make.png	maee	maee	2
+join	join	print/join.png	script/join.png	messy/join.png	wrong/join.png	joen	joen	2
+overthere	over there	print/overthere.png	script/overthere.png	messy/overthere.png	wrong/overthere.png	overehere	overehere	4
+alot	a lot	print/alot.png	script/alot.png	messy/alot.png	wrong/alot.png	alet	alet	2
+paint	paint	print/paint.png	script/paint.png	messy/paint.png	wrong/paint.png	paent	paent	2
+pull	pull	print/pull.png	script/pull.png	messy/pull.png	wrong/pull.png	puel	puel	2
+push	push	print/push.png	script/push.png	messy/push.png	wrong/push.png	pueh	pueh	2
+warmup	warm up	print/warmup.png	script/warmup.png	messy/warmup.png	wrong/warmup.png	wareup	wareup	3
+jump	jump	print/jump.png	script/jump.png	messy/jump.png	wrong/jump.png	juep	juep	2
+climb	climb	print/climb.png	script/climb.png	messy/climb.png	wrong/climb.png	clemb	clemb	2
+should	should	print/should.png	script/should.png	messy/should.png	wrong/should.png	shoeld	shoeld	3
+swim	swim	print/swim.png	script/swim.png	messy/swim.png	wrong/swim.png	swem	swem	2
+swimmingpool	swimming pool	print/swimmingpool.png	script/swimmingpool.png	messy/swimmingpool.png	wrong/swimmingpool.png	swimmiegpool	swimmiegpool	6
+hurt	hurt	print/hurt.png	script/hurt.png	messy/hurt.png	wrong/hurt.png	huet	huet	2
+stairs	stairs	print/stairs.png	script/stairs.png	messy/stairs.png	wrong/stairs.png	staers	staers	3
+keeptotheright	keep to the right	print/keeptotheright.png	script/keeptotheright.png	messy/keeptotheright.png	wrong/keeptotheright.png	keeptoteeright	keeptoteeright	7
+from	from	print/from.png	script/from.png	messy/from.png	wrong/from.png	frem	frem	2
+may	may	print/may.png	script/may.png	messy/may.png	wrong/may.png	mey	mey	1
+outoftheway	out of the way	print/outoftheway.png	script/outoftheway.png	messy/outoftheway.png	wrong/outoftheway.png	outofeheway	outofeheway	5
+rightnow	right now	print/rightnow.png	script/rightnow.png	messy/rightnow.png	wrong/rightnow.png	righenow	righenow	4
+walk	walk	print/walk.png	script/walk.png	messy/walk.png	wrong/walk.png	waek	waek	2
+slowly	slowly	print/slowly.png	script/slowly.png	messy/slowly.png	wrong/slowly.png	sloely	sloely	3
+watch	watch	print/watch.png	script/watch.png	messy/watch.png	wrong/watch.png	waech	waech	2
+tv	TV	print/tv.png	script/tv.png	messy/tv.png	wrong/tv.png	te	te	1
+visit	visit	print/visit.png	script/visit.png	messy/visit.png	wrong/visit.png	vieit	vieit	2
+grandparent	grandparent	print/grandparent.png	script/grandparent.png	messy/grandparent.png	wrong/grandparent.png	grandearent	grandearent	5
+playchinesechess	play Chinese chess	print/playchinesechess.png	script/playchinesechess.png	messy/playchinesechess.png	wrong/playchinesechess.png	playchinasechess	playchinasechess	8
+playthepiano	play the piano	print/playthepiano.png	script/playthepiano.png	messy/playthepiano.png	wrong/playthepiano.png	playthapiano	playthapiano	6
+chat	chat	print/chat.png	script/chat.png	messy/chat.png	wrong/chat.png	chet	chet	2
+internet	internet	print/internet.png	script/internet.png	messy/internet.png	wrong/internet.png	inteenet	inteenet	4
+always	always	print/always.png	script/always.png	messy/always.png	wrong/always.png	alweys	alweys	3
+haveapicnic	have a picnic	print/haveapicnic.png	script/haveapicnic.png	messy/haveapicnic.png	wrong/haveapicnic.png	haveaeicnic	haveaeicnic	5
+getout	get out	print/getout.png	script/getout.png	messy/getout.png	wrong/getout.png	geteut	geteut	3
+usually	usually	print/usually.png	script/usually.png	messy/usually.png	wrong/usually.png	usuelly	usuelly	3
+plant	plant	print/plant.png	script/plant.png	messy/plant.png	wrong/plant.png	plent	plent	2
+spend	spend	print/spend.png	script/spend.png	messy/spend.png	wrong/spend.png	spand	spand	2
+live	live	print/live.png	script/live.png	messy/live.png	wrong/live.png	liee	liee	2
+wonderful	wonderful	print/wonderful.png	script/wonderful.png	messy/wonderful.png	wrong/wonderful.png	wondarful	wondarful	4
+getalongwith	get along with	print/getalongwith.png	script/getalongwith.png	messy/getalongwith.png	wrong/getalongwith.png	getaloegwith	getaloegwith	6
+between	between	print/between.png	script/between.png	messy/between.png	wrong/between.png	beteeen	beteeen	3
+wall	wall	print/wall.png	script/wall.png	messy/wall.png	wrong/wall.png	wael	wael	2
+neighbour	neighbour	print/neighbour.png	script/neighbour.png	messy/neighbour.png	wrong/neighbour.png	neigebour	neigebour	4
+heavy	heavy	print/heavy.png	script/heavy.png	messy/heavy.png	wrong/heavy.png	heevy	heevy	2
+drink	drink	print/drink.png	script/drink.png	messy/drink.png	wrong/drink.png	drenk	drenk	2
+some	some	print/some.png	script/some.png	messy/some.png	wrong/some.png	soee	soee	2
+ononeswayback	on one's way back	print/ononeswayback.png	script/ononeswayback.png	messy/ononeswayback.png	wrong/ononeswayback.png	ononeseayback	ononeseayback	6
+their	their	print/their.png	script/their.png	messy/their.png	wrong/their.png	thair	thair	2
+nextto	next to	print/nextto.png	script/nextto.png	messy/nextto.png	wrong/nextto.png	nexeto	nexeto	3
+space	space	print/space.png	script/space.png	messy/space.png	wrong/space.png	spece	spece	2
+too	too	print/too.png	script/too.png	messy/too.png	wrong/too.png	teo	teo	1
+closeto	close to	print/closeto.png	script/closeto.png	messy/closeto.png	wrong/closeto.png	cloeeto	cloeeto	3
+use	use	print/use.png	script/use.png	messy/use.png	wrong/use.png	uee	uee	1
+letter	letter	print/letter.png	script/letter.png	messy/letter.png	wrong/letter.png	leteer	leteer	3
+give	give	print/give.png	script/give.png	messy/give.png	wrong/give.png	giee	giee	2
+advice	advice	print/advice.png	script/advice.png	messy/advice.png	wrong/advice.png	advece	advece	3
+important	important	print/important.png	script/important.png	messy/important.png	wrong/important.png	impoetant	impoetant	4
+friendly	friendly	print/friendly.png	script/friendly.png	messy/friendly.png	wrong/friendly.png	frieedly	frieedly	4
+time	time	print/time.png	script/time.png	messy/time.png	wrong/time.png	tiee	tiee	2
+doyourhomework	do your homework	print/doyourhomework.png	script/doyourhomework.png	messy/doyourhomework.png	wrong/doyourhomework.png	doyourhemework	doyourhemework	7
+classmate	classmate	print/classmate.png	script/classmate.png	messy/classmate.png	wrong/classmate.png	clasemate	clasemate	4
+favourite	favourite	print/favourite.png	script/favourite.png	messy/favourite.png	wrong/favourite.png	favoerite	favoerite	4
+problem	problem	print/problem.png	script/problem.png	messy/problem.png	wrong/problem.png	proelem	proelem	3
+shop	shop	print/shop.png	script/shop.png	messy/shop.png	wrong/shop.png	shep	shep	2
+smart	smart	print/smart.png	script/smart.png	messy/smart.png	wrong/smart.png	smert	smert	2
+shoe	shoe	print/shoe.png	script/shoe.png	messy/shoe.png	wrong/shoe.png	shee	shee	2
+sweater	sweater	print/sweater.png	script/sweater.png	messy/sweater.png	wrong/sweater.png	sweeter	sweeter	3
+sock	sock	print/sock.png	script/sock.png	messy/sock.png	wrong/sock.png	soek	soek	2
+bow	bow	print/bow.png	script/bow.png	messy/bow.png	wrong/bow.png	bew	bew	1
+need	need	print/need.png	script/need.png	messy/need.png	wrong/need.png	nead	nead	2
+ms	Ms	print/ms.png	script/ms.png	messy/ms.png	wrong/ms.png	me	me	1
+twentyeight	twenty-eight	print/twentyeight.png	script/twentyeight.png	messy/twentyeight.png	wrong/twentyeight.png	twenteeight	twenteeight	5
+yuan	yuan	print/yuan.png	script/yuan.png	messy/yuan.png	wrong/yuan.png	yuen	yuen	2
+howabout	How about ...?	print/howabout.png	script/howabout.png	messy/howabout.png	wrong/howabout.png	howaeout	howaeout	4
+show	show	print/show.png	script/show.png	messy/show.png	wrong/show.png	shew	shew	2
+tail	tail	print/tail.png	script/tail.png	messy/tail.png	wrong/tail.png	tael	tael	2
+list	list	print/list.png	script/list.png	messy/list.png	wrong/list.png	liet	liet	2
+pocketmoney	pocket money	print/pocketmoney.png	script/pocketmoney.png	messy/pocketmoney.png	wrong/pocketmoney.png	pockeemoney	pockeemoney	5
+one	one	print/one.png	script/one.png	messy/one.png	wrong/one.png	oee	oee	1
+tryon	try on	print/tryon.png	script/tryon.png	messy/tryon.png	wrong/tryon.png	treon	treon	2
+sixtyeight	sixty-eight	print/sixtyeight.png	script/sixtyeight.png	messy/sixtyeight.png	wrong/sixtyeight.png	sixtyaight	sixtyaight	5
+take	take	print/take.png	script/take.png	messy/take.png	wrong/take.png	taee	taee	2
+pair	pair	print/pair.png	script/pair.png	messy/pair.png	wrong/pair.png	paer	paer	2
+forty	forty	print/forty.png	script/forty.png	messy/forty.png	wrong/forty.png	foety	foety	2
+twentyfour	twenty-four	print/twentyfour.png	script/twentyfour.png	messy/twentyfour.png	wrong/twentyfour.png	twentefour	twentefour	5
+festival	festival	print/festival.png	script/festival.png	messy/festival.png	wrong/festival.png	festeval	festeval	4
+sky	sky	print/sky.png	script/sky.png	messy/sky.png	wrong/sky.png	sey	sey	1
+about	about	print/about.png	script/about.png	messy/about.png	wrong/about.png	abeut	abeut	2
+june	June	print/june.png	script/june.png	messy/june.png	wrong/june.png	juee	juee	2
+dragonboatrace	dragon boat race	print/dragonboatrace.png	script/dragonboatrace.png	messy/dragonboatrace.png	wrong/dragonboatrace.png	dragonbeatrace	dragonbeatrace	7
+january	January	print/january.png	script/january.png	messy/january.png	wrong/january.png	janeary	janeary	3
+february	February	print/february.png	script/february.png	messy/february.png	wrong/february.png	febreary	febreary	4
+before	before	print/before.png	script/before.png	messy/before.png	wrong/before.png	befere	befere	3
+door	door	print/door.png	script/door.png	messy/door.png	wrong/door.png	doer	doer	2
+redpacket	red packet	print/redpacket.png	script/redpacket.png	messy/redpacket.png	wrong/redpacket.png	redpecket	redpecket	4
+liondance	lion dance	print/liondance.png	script/liondance.png	messy/liondance.png	wrong/liondance.png	lioneance	lioneance	4
+haveagoodtime	have a good time	print/haveagoodtime.png	script/haveagoodtime.png	messy/haveagoodtime.png	wrong/haveagoodtime.png	haveageodtime	haveageodtime	6
+december	December	print/december.png	script/december.png	messy/december.png	wrong/december.png	deceeber	deceeber	4
+hang	hang	print/hang.png	script/hang.png	messy/hang.png	wrong/hang.png	haeg	haeg	2
+stocking	stocking	print/stocking.png	script/stocking.png	messy/stocking.png	wrong/stocking.png	stoceing	stoceing	4
+open	open	print/open.png	script/open.png	messy/open.png	wrong/open.png	opan	opan	2
+turkey	turkey	print/turkey.png	script/turkey.png	messy/turkey.png	wrong/turkey.png	tureey	tureey	3
+october	October	print/october.png	script/october.png	messy/october.png	wrong/october.png	octeber	octeber	3
+september	September	print/september.png	script/september.png	messy/september.png	wrong/september.png	septamber	septamber	4
+mooncake	mooncake	print/mooncake.png	script/mooncake.png	messy/mooncake.png	wrong/mooncake.png	mooneake	mooneake	4
+activity	activity	print/activity.png	script/activity.png	messy/activity.png	wrong/activity.png	actieity	actieity	4
+moon	moon	print/moon.png	script/moon.png	messy/moon.png	wrong/moon.png	moen	moen	2
+china	China	print/china.png	script/china.png	messy/china.png	wrong/china.png	chena	chena	2
+strongandhealthy	strong and healthy	print/strongandhealthy.png	script/strongandhealthy.png	messy/strongandhealthy.png	wrong/strongandhealthy.png	stronganehealthy	stronganehealthy	8
+readinbed	read in bed	print/readinbed.png	script/readinbed.png	messy/readinbed.png	wrong/readinbed.png	readenbed	readenbed	4
+goodhabits	good habits	print/goodhabits.png	script/goodhabits.png	messy/goodhabits.png	wrong/goodhabits.png	goodhebits	goodhebits	5
+bebadfor	be bad for	print/bebadfor.png	script/bebadfor.png	messy/bebadfor.png	wrong/bebadfor.png	bebaefor	bebaefor	4
+gotobedlate	go to bed late	print/gotobedlate.png	script/gotobedlate.png	messy/gotobedlate.png	wrong/gotobedlate.png	gotobadlate	gotobadlate	5
+listentoteacherscarefully	listen to teachers carefully	print/listentoteacherscarefully.png	script/listentoteacherscarefully.png	messy/listentoteacherscarefully.png	wrong/listentoteacherscarefully.png	listentoteaceerscarefully	listentoteaceerscarefully	12
+dochoresathome	do chores at home	print/dochoresathome.png	script/dochoresathome.png	messy/dochoresathome.png	wrong/dochoresathome.png	dochoreeathome	dochoreeathome	7
+abadhabit	a bad habit	print/abadhabit.png	script/abadhabit.png	messy/abadhabit.png	wrong/abadhabit.png	abadeabit	abadeabit	4
+keeptheroomtidy	keep the room tidy	print/keeptheroomtidy.png	script/keeptheroomtidy.png	messy/keeptheroomtidy.png	wrong/keeptheroomtidy.png	keeptheeoomtidy	keeptheeoomtidy	7
+playacardgame	play a card game	print/playacardgame.png	script/playacardgame.png	messy/playacardgame.png	wrong/playacardgame.png	playacerdgame	playacerdgame	6
+getuplate	get up late	print/getuplate.png	script/getuplate.png	messy/getuplate.png	wrong/getuplate.png	getuelate	getuelate	4
+showaround	show ... around ...	print/showaround.png	script/showaround.png	messy/showaround.png	wrong/showaround.png	showaeound	showaeound	5
+putschoolthingsinorder	put school things in order	print/putschoolthingsinorder.png	script/putschoolthingsinorder.png	messy/putschoolthingsinorder.png	wrong/putschoolthingsinorder.png	putschoolthengsinorder	putschoolthengsinorder	11
+listens	listens	print/listens.png	script/listens.png	messy/listens.png	wrong/listens.png	liseens	liseens	3
+does	does	print/does.png	script/does.png	messy/does.png	wrong/does.png	doas	doas	2
+puts	puts	print/puts.png	script/puts.png	messy/puts.png	wrong/puts.png	pues	pues	2
+goes	goes	print/goes.png	script/goes.png	messy/goes.png	wrong/goes.png	goas	goas	2
+has	has	print/has.png	script/has.png	messy/has.png	wrong/has.png	hes	hes	1
+cleanandtidy	clean and tidy	print/cleanandtidy.png	script/cleanandtidy.png	messy/cleanandtidy.png	wrong/cleanandtidy.png	cleanaedtidy	cleanaedtidy	6
+habits	habits	print/habits.png	script/habits.png	messy/habits.png	wrong/habits.png	habets	habets	3
+cantseeorhear	can't see or hear	print/cantseeorhear.png	script/cantseeorhear.png	messy/cantseeorhear.png	wrong/cantseeorhear.png	cantseaorhear	cantseaorhear	6
+feelangryandsad	feel angry and sad	print/feelangryandsad.png	script/feelangryandsad.png	messy/feelangryandsad.png	wrong/feelangryandsad.png	feelangeyandsad	feelangeyandsad	7
+writesomewords	write some words	print/writesomewords.png	script/writesomewords.png	messy/writesomewords.png	wrong/writesomewords.png	writesoeewords	writesoeewords	7
+learnfast	learn fast	print/learnfast.png	script/learnfast.png	messy/learnfast.png	wrong/learnfast.png	learefast	learefast	4
+learntospeak	learn to speak	print/learntospeak.png	script/learntospeak.png	messy/learntospeak.png	wrong/learntospeak.png	learntespeak	learntespeak	6
+talkwithothers	talk with others	print/talkwithothers.png	script/talkwithothers.png	messy/talkwithothers.png	wrong/talkwithothers.png	talkwiteothers	talkwiteothers	7
+putwateronhand	put water on ... hand	print/putwateronhand.png	script/putwateronhand.png	messy/putwateronhand.png	wrong/putwateronhand.png	putwateeonhand	putwateeonhand	7
+feelveryhappy	feel very happy	print/feelveryhappy.png	script/feelveryhappy.png	messy/feelveryhappy.png	wrong/feelveryhappy.png	feelveeyhappy	feelveeyhappy	6
+understandmanythings	understand many things	print/understandmanythings.png	script/understandmanythings.png	messy/understandmanythings.png	wrong/understandmanythings.png	understandeanythings	understandeanythings	10
+feelworried	feel worried	print/feelworried.png	script/feelworried.png	messy/feelworried.png	wrong/feelworried.png	feelwerried	feelwerried	5
+feelbad	feel bad	print/feelbad.png	script/feelbad.png	messy/feelbad.png	wrong/feelbad.png	feeebad	feeebad	3
+feelexcited	feel excited	print/feelexcited.png	script/feelexcited.png	messy/feelexcited.png	wrong/feelexcited.png	feeleecited	feeleecited	5
+begoodat	be good at	print/begoodat.png	script/begoodat.png	messy/begoodat.png	wrong/begoodat.png	begoedat	begoedat	4
+dothehighjump	do the high jump	print/dothehighjump.png	script/dothehighjump.png	messy/dothehighjump.png	wrong/dothehighjump.png	dotheheghjump	dotheheghjump	6
+onthesportsground	on the sports ground	print/onthesportsground.png	script/onthesportsground.png	messy/onthesportsground.png	wrong/onthesportsground.png	onthespoetsground	onthespoetsground	8
+likefootball	like football	print/likefootball.png	script/likefootball.png	messy/likefootball.png	wrong/likefootball.png	likefoetball	likefoetball	6
+helentrieshard	Helen tries hard.	print/helentrieshard.png	script/helentrieshard.png	messy/helentrieshard.png	wrong/helentrieshard.png	helentreeshard	helentreeshard	7
+bobbydoesnotfeelhappy	Bobby does not feel happy.	print/bobbydoesnotfeelhappy.png	script/bobbydoesnotfeelhappy.png	messy/bobbydoesnotfeelhappy.png	wrong/bobbydoesnotfeelhappy.png	bobbydoesnetfeelhappy	bobbydoesnetfeelhappy	10
+sometimesliutaoteacheshim	Sometimes Liu Tao teaches him.	print/sometimesliutaoteacheshim.png	script/sometimesliutaoteacheshim.png	messy/sometimesliutaoteacheshim.png	wrong/sometimesliutaoteacheshim.png	sometimesliueaoteacheshim	sometimesliueaoteacheshim	12
+feels	feels	print/feels.png	script/feels.png	messy/feels.png	wrong/feels.png	feals	feals	2
+teaches	teaches	print/teaches.png	script/teaches.png	messy/teaches.png	wrong/teaches.png	teaehes	teaehes	3
+talk	talk	print/talk.png	script/talk.png	messy/talk.png	wrong/talk.png	taek	taek	2
+studies	studies	print/studies.png	script/studies.png	messy/studies.png	wrong/studies.png	stueies	stueies	3
+dancing	dancing	print/dancing.png	script/dancing.png	messy/dancing.png	wrong/dancing.png	daneing	daneing	3
+knows	knows	print/knows.png	script/knows.png	messy/knows.png	wrong/knows.png	knews	knews	2
+schoolclub	school club	print/schoolclub.png	script/schoolclub.png	messy/schoolclub.png	wrong/schoolclub.png	schooeclub	schooeclub	5
+playtabletennis	play table tennis	print/playtabletennis.png	script/playtabletennis.png	messy/playtabletennis.png	wrong/playtabletennis.png	playtabeetennis	playtabeetennis	7
+makenewfriends	make new friends	print/makenewfriends.png	script/makenewfriends.png	messy/makenewfriends.png	wrong/makenewfriends.png	makeneweriends	makeneweriends	7
+liketryingnewthings	like trying new things	print/liketryingnewthings.png	script/liketryingnewthings.png	messy/liketryingnewthings.png	wrong/liketryingnewthings.png	liketryinenewthings	liketryinenewthings	9
+learnaboutchineseculture	learn about Chinese culture	print/learnaboutchineseculture.png	script/learnaboutchineseculture.png	messy/learnaboutchineseculture.png	wrong/learnaboutchineseculture.png	learnaboutcheneseculture	learnaboutcheneseculture	12
+learnalotfromreading	learn a lot from reading	print/learnalotfromreading.png	script/learnalotfromreading.png	messy/learnalotfromreading.png	wrong/learnalotfromreading.png	learnalotfeomreading	learnalotfeomreading	10
+makeherhappy	make her happy	print/makeherhappy.png	script/makeherhappy.png	messy/makeherhappy.png	wrong/makeherhappy.png	makeheehappy	makeheehappy	6
+jointhedancingclub	join the dancing club	print/jointhedancingclub.png	script/jointhedancingclub.png	messy/jointhedancingclub.png	wrong/jointhedancingclub.png	jointhedaecingclub	jointhedaecingclub	9
+begoodatpapercutting	be good at paper-cutting	print/begoodatpapercutting.png	script/begoodatpapercutting.png	messy/begoodatpapercutting.png	wrong/begoodatpapercutting.png	begoodatpaeercutting	begoodatpaeercutting	10
+itkeepsmehealthy	It keeps me healthy.	print/itkeepsmehealthy.png	script/itkeepsmehealthy.png	messy/itkeepsmehealthy.png	wrong/itkeepsmehealthy.png	itkeepsmahealthy	itkeepsmahealthy	8
+wanttobuyagift	want to buy a gift	print/wanttobuyagift.png	script/wanttobuyagift.png	messy/wanttobuyagift.png	wrong/wanttobuyagift.png	wanttobeyagift	wanttobeyagift	7
+theselookgreat	These look great.	print/theselookgreat.png	script/theselookgreat.png	messy/theselookgreat.png	wrong/theselookgreat.png	theseloekgreat	theseloekgreat	7
+helpusthinkandgrow	help us think and grow	print/helpusthinkandgrow.png	script/helpusthinkandgrow.png	messy/helpusthinkandgrow.png	wrong/helpusthinkandgrow.png	helpusthiekandgrow	helpusthiekandgrow	9
+keepushealthyandstrong	keep us healthy and strong	print/keepushealthyandstrong.png	script/keepushealthyandstrong.png	messy/keepushealthyandstrong.png	wrong/keepushealthyandstrong.png	keepushealteyandstrong	keepushealteyandstrong	11
+likepainting	like painting	print/likepainting.png	script/likepainting.png	messy/likepainting.png	wrong/likepainting.png	likepaenting	likepaenting	6
+robotclub	robot club	print/robotclub.png	script/robotclub.png	messy/robotclub.png	wrong/robotclub.png	roboeclub	roboeclub	4
+yourfriendshobby	your friend's hobby	print/yourfriendshobby.png	script/yourfriendshobby.png	messy/yourfriendshobby.png	wrong/yourfriendshobby.png	yourfrieedshobby	yourfrieedshobby	8
+doesshelikesinging	Does she like singing?	print/doesshelikesinging.png	script/doesshelikesinging.png	messy/doesshelikesinging.png	wrong/doesshelikesinging.png	doesshelieesinging	doesshelieesinging	9
+keeps	keeps	print/keeps.png	script/keeps.png	messy/keeps.png	wrong/keeps.png	keaps	keaps	2
+do	do	print/do.png	script/do.png	messy/do.png	wrong/do.png	de	de	1
+swimming	swimming	print/swimming.png	script/swimming.png	messy/swimming.png	wrong/swimming.png	swimeing	swimeing	4
+tojoin	to join	print/tojoin.png	script/tojoin.png	messy/tojoin.png	wrong/tojoin.png	tojein	tojein	3
+dancingclub	dancing club	print/dancingclub.png	script/dancingclub.png	messy/dancingclub.png	wrong/dancingclub.png	danciegclub	danciegclub	5
+reading	Reading	print/reading.png	script/reading.png	messy/reading.png	wrong/reading.png	reaeing	reaeing	3
+hobbies	hobbies	print/hobbies.png	script/hobbies.png	messy/hobbies.png	wrong/hobbies.png	hobeies	hobeies	3
+skipping	skipping	print/skipping.png	script/skipping.png	messy/skipping.png	wrong/skipping.png	skipeing	skipeing	4
+makes	makes	print/makes.png	script/makes.png	messy/makes.png	wrong/makes.png	maees	maees	2
+runonthestairs	run on the stairs	print/runonthestairs.png	script/runonthestairs.png	messy/runonthestairs.png	wrong/runonthestairs.png	runonthastairs	runonthastairs	7
+keepsafe	keep safe	print/keepsafe.png	script/keepsafe.png	messy/keepsafe.png	wrong/keepsafe.png	keepeafe	keepeafe	4
+pushothers	push others	print/pushothers.png	script/pushothers.png	messy/pushothers.png	wrong/pushothers.png	pushoehers	pushoehers	5
+moveoutoftheway	move out of the way	print/moveoutoftheway.png	script/moveoutoftheway.png	messy/moveoutoftheway.png	wrong/moveoutoftheway.png	moveouteftheway	moveouteftheway	7
+jumpfromthestairs	jump from the stairs	print/jumpfromthestairs.png	script/jumpfromthestairs.png	messy/jumpfromthestairs.png	wrong/jumpfromthestairs.png	jumpfromehestairs	jumpfromehestairs	8
+pullhisclothes	pull his clothes	print/pullhisclothes.png	script/pullhisclothes.png	messy/pullhisclothes.png	wrong/pullhisclothes.png	pullhiselothes	pullhiselothes	7
+walkslowly	walk slowly	print/walkslowly.png	script/walkslowly.png	messy/walkslowly.png	wrong/walkslowly.png	walkseowly	walkseowly	5
+schoolsafety	school safety	print/schoolsafety.png	script/schoolsafety.png	messy/schoolsafety.png	wrong/schoolsafety.png	schooleafety	schooleafety	6
+cantwait	can't wait	print/cantwait.png	script/cantwait.png	messy/cantwait.png	wrong/cantwait.png	canteait	canteait	4
+myleghurts	my leg hurts	print/myleghurts.png	script/myleghurts.png	messy/myleghurts.png	wrong/myleghurts.png	mylegeurts	mylegeurts	5
+bytheswimmingpool	by the swimming pool	print/bytheswimmingpool.png	script/bytheswimmingpool.png	messy/bytheswimmingpool.png	wrong/bytheswimmingpool.png	bytheswiemingpool	bytheswiemingpool	8
+listentoyou	listen to you	print/listentoyou.png	script/listentoyou.png	messy/listentoyou.png	wrong/listentoyou.png	listeetoyou	listeetoyou	5
+weshouldntswimhere	We shouldn't swim here.	print/weshouldntswimhere.png	script/weshouldntswimhere.png	messy/weshouldntswimhere.png	wrong/weshouldntswimhere.png	weshouldneswimhere	weshouldneswimhere	9
+youshouldwarmupfirst	You should warm up first.	print/youshouldwarmupfirst.png	script/youshouldwarmupfirst.png	messy/youshouldwarmupfirst.png	wrong/youshouldwarmupfirst.png	youshouldwermupfirst	youshouldwermupfirst	10
+youmayhurthim	You may hurt him.	print/youmayhurthim.png	script/youmayhurthim.png	messy/youmayhurthim.png	wrong/youmayhurthim.png	youmayeurthim	youmayeurthim	6
+youshouldntpullhisclothes	You shouldn't pull his clothes.	print/youshouldntpullhisclothes.png	script/youshouldntpullhisclothes.png	messy/youshouldntpullhisclothes.png	wrong/youshouldntpullhisclothes.png	youshouldntpellhisclothes	youshouldntpellhisclothes	12
+shouldnt	shouldn't	print/shouldnt.png	script/shouldnt.png	messy/shouldnt.png	wrong/shouldnt.png	shouednt	shouednt	4
+by	by	print/by.png	script/by.png	messy/by.png	wrong/by.png	be	be	1
+safe	safe	print/safe.png	script/safe.png	messy/safe.png	wrong/safe.png	saee	saee	2
+warm	warm	print/warm.png	script/warm.png	messy/warm.png	wrong/warm.png	waem	waem	2
+careful	careful	print/careful.png	script/careful.png	messy/careful.png	wrong/careful.png	caraful	caraful	3

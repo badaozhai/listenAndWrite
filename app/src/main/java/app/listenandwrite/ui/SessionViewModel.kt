@@ -4,6 +4,7 @@ import android.app.Application
 import android.media.AudioAttributes
 import android.media.AudioFocusRequest
 import android.media.AudioManager
+import android.media.ToneGenerator
 import android.os.SystemClock
 import android.os.VibrationEffect
 import android.os.Vibrator
@@ -53,6 +54,7 @@ data class SessionUi(
     val ttsWarning: String? = null,
     val voiceWarning: String? = null,
     val finished: Boolean = false,
+    val hideAnswer: Boolean = false,
 )
 
 private enum class Cmd { NEXT, PREV, REPLAY, PAUSE, RESUME }
@@ -66,6 +68,7 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
     private val speaker = Speaker(app)
     private val audio = app.getSystemService(AudioManager::class.java)
     private val vibrator = app.getSystemService(Vibrator::class.java)
+    private var tone: ToneGenerator? = null
     private val focusRequest = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
         .setAudioAttributes(
             AudioAttributes.Builder()
@@ -96,6 +99,7 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
                 mode = practice.mode,
                 phase = if (words.isEmpty()) Phase.Empty else Phase.Loading,
                 hint = if (words.isEmpty()) "这个词单是空的" else "准备好了",
+                hideAnswer = practice.hideAnswer,
             )
             if (words.isEmpty()) return@launch
             audio?.requestAudioFocus(focusRequest)
@@ -147,6 +151,8 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
 
     override fun onCleared() {
         speaker.shutdown()
+        runCatching { tone?.release() }
+        tone = null
         audio?.abandonAudioFocusRequest(focusRequest)
         super.onCleared()
     }
@@ -248,6 +254,7 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     private suspend fun waitWriting(word: WordEntity): BreakReason {
+        beep()
         val total = WordText.writingSeconds(
             word.text,
             settings.writingSeconds,
@@ -284,6 +291,7 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     private suspend fun waitVoice(): BreakReason {
+        beep()
         ui = ui.copy(
             phase = Phase.Listening,
             listening = true,
@@ -345,6 +353,14 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
             if (timeoutMs != null && SystemClock.elapsedRealtime() - start >= timeoutMs) return null
             delay(20)
         }
+    }
+
+    /** 读完后的一声，告诉孩子可以落笔，不用看屏幕。 */
+    private fun beep() {
+        val player = tone ?: runCatching {
+            ToneGenerator(AudioManager.STREAM_MUSIC, 80)
+        }.getOrNull()?.also { tone = it }
+        runCatching { player?.startTone(ToneGenerator.TONE_PROP_BEEP, 140) }
     }
 
     private fun buzz(pattern: LongArray) {

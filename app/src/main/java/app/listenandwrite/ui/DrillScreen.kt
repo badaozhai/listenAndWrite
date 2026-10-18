@@ -45,13 +45,16 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import app.listenandwrite.ListenApp
 import app.listenandwrite.data.prepareEnglishDrills
 import app.listenandwrite.domain.EnglishCue
+import app.listenandwrite.domain.LastPlay
 import app.listenandwrite.domain.PlayMode
 import app.listenandwrite.domain.englishCueLabel
+import app.listenandwrite.domain.playCaption
 import app.listenandwrite.domain.unitSlot
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
@@ -71,11 +74,19 @@ class DrillViewModel(app: Application) : AndroidViewModel(app) {
     val selected = MutableStateFlow<Set<Int>>(emptySet())
     val randomOrder = MutableStateFlow(false)
     val cue = MutableStateFlow(EnglishCue.CHINESE)
+    val resumeMode = MutableStateFlow(PlayMode.TIMER)
     private val _message = MutableSharedFlow<String>(extraBufferCapacity = 1)
     val message = _message.asSharedFlow()
 
     init {
-        viewModelScope.launch { listId.value = dao.prepareEnglishDrills() }
+        viewModelScope.launch {
+            listId.value = dao.prepareEnglishDrills()
+            val saved = listenApp.settings.flow.first().lastDrill
+            selected.value = saved.units
+            randomOrder.value = saved.random
+            cue.value = saved.cue
+            resumeMode.value = saved.mode
+        }
     }
 
     fun toggle(unit: Int) {
@@ -113,7 +124,12 @@ class DrillViewModel(app: Application) : AndroidViewModel(app) {
             } else {
                 items.sortedWith(compareBy({ unitSlot(it.unitName) }, { it.position }, { it.id }))
             }
-            val title = if (chosen.size == 1) "默写练习 第${chosen.first()}单元" else "默写练习"
+            val only = chosen.sorted().singleOrNull()
+            val title = if (only != null) "默写练习 第${only}单元" else "默写练习"
+            resumeMode.value = mode
+            listenApp.settings.update { current ->
+                current.copy(lastDrill = LastPlay(chosen, randomOrder.value, mode, cue.value))
+            }
             listenApp.practice.set(
                 listId = id,
                 title = title,
@@ -121,6 +137,7 @@ class DrillViewModel(app: Application) : AndroidViewModel(app) {
                 words = ordered,
                 backRoute = "drills",
                 englishCue = cue.value,
+                hideAnswer = true,
             )
             _message.emit("open-session")
         }
@@ -141,6 +158,7 @@ fun DrillScreen(
     val selected by viewModel.selected.collectAsStateWithLifecycle()
     val random by viewModel.randomOrder.collectAsStateWithLifecycle()
     val cue by viewModel.cue.collectAsStateWithLifecycle()
+    val resumeMode by viewModel.resumeMode.collectAsStateWithLifecycle()
     val snackbar = remember { SnackbarHostState() }
     LaunchedEffect(Unit) {
         viewModel.message.collect { text ->
@@ -148,6 +166,8 @@ fun DrillScreen(
         }
     }
     val counts = words.groupingBy { unitSlot(it.unitName) }.eachCount()
+    val playable = selected.filter { (counts[it] ?: 0) > 0 }.toSet()
+    val currentPlay = LastPlay(playable, random, resumeMode, cue)
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         snackbarHost = { SnackbarHost(snackbar) },
@@ -178,6 +198,20 @@ fun DrillScreen(
             contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
+            if (playable.isNotEmpty()) {
+                item {
+                    Card(
+                        onClick = { viewModel.start(resumeMode) },
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+                    ) {
+                        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                            Text("继续默写", style = MaterialTheme.typography.titleLarge)
+                            Text(playCaption(currentPlay, chinese = false, withCue = true))
+                            Text("听到「嘀」就写，不用看手机。答案等全部写完再对。")
+                        }
+                    }
+                }
+            }
             item {
                 Text(
                     "听中文，在纸上写英文。默认只报中文，不改英语词表的报法。第 3 单元没有印答案，是按词表补的，不对可以点进单元改。",
@@ -208,7 +242,7 @@ fun DrillScreen(
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
                     Button(onClick = { viewModel.start(PlayMode.TIMER) }, modifier = Modifier.weight(1f)) { Text("定时默写") }
                     FilledTonalButton(onClick = { viewModel.start(PlayMode.VOICE) }, modifier = Modifier.weight(1f)) {
-                        Text("说完再继续")
+                        Text("说完再默写")
                     }
                 }
             }

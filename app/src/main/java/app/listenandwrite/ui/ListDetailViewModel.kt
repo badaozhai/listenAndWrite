@@ -15,6 +15,7 @@ import app.listenandwrite.domain.EnglishCue
 import app.listenandwrite.domain.GARDEN_AFTER_18
 import app.listenandwrite.domain.GARDEN_AFTER_22
 import app.listenandwrite.domain.Lang
+import app.listenandwrite.domain.LastPlay
 import app.listenandwrite.domain.Subject
 import app.listenandwrite.domain.slotTitle
 import app.listenandwrite.domain.LessonOptions
@@ -286,7 +287,26 @@ class ListDetailViewModel(
                 ordered,
                 back,
                 englishCue = if (drill) drillCue.value else null,
+                hideAnswer = drill,
             )
+            val slots = if (fixedUnit != null) {
+                setOf(fixedUnit)
+            } else {
+                filtered.map { unitSlot(it.unitName) }.filter { it > 0 }.toSet()
+            }
+            val subjectName = list.value?.subject
+            if (subjectName != null && slots.isNotEmpty()) {
+                val cue = if (drill) drillCue.value else listenApp.settings.flow.first().englishCue
+                val play = LastPlay(slots, randomOrder.value, mode, cue)
+                listenApp.settings.update { current ->
+                    when (subjectName) {
+                        DRILL_SUBJECT -> current.copy(lastDrill = play)
+                        Subject.ENGLISH.name -> current.copy(lastRead = play)
+                        Subject.CHINESE.name -> current.copy(lastChinese = play)
+                        else -> current
+                    }
+                }
+            }
             _openSession.emit(mode)
         }
     }

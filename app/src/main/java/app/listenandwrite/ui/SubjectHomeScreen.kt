@@ -52,10 +52,13 @@ import app.listenandwrite.data.WordEntity
 import app.listenandwrite.data.prepareSubject
 import app.listenandwrite.data.studiedWord
 import app.listenandwrite.data.AppSettings
+import app.listenandwrite.data.prepareEnglishDrills
 import app.listenandwrite.domain.EnglishCue
 import app.listenandwrite.domain.Lang
+import app.listenandwrite.domain.LastPlay
 import app.listenandwrite.domain.PlayMode
 import app.listenandwrite.domain.Subject
+import app.listenandwrite.domain.playCaption
 import app.listenandwrite.domain.englishCueLabel
 import app.listenandwrite.domain.CHINESE_UNIT_COUNT
 import app.listenandwrite.domain.GARDEN_AFTER_18
@@ -69,6 +72,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -115,7 +119,7 @@ fun SubjectGate(
             )
             SubjectCard(
                 title = "英语",
-                body = "单词和同音词。先读英语，再说中文意思。",
+                body = "认读会报出英文。默写听中文，在纸上写，播放时不看手机。",
                 onClick = { onSubject(Subject.ENGLISH) },
                 modifier = Modifier.weight(1f),
             )
@@ -156,11 +160,20 @@ class SubjectHomeViewModel(app: Application, val subject: Subject) : AndroidView
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AppSettings())
     val selected = MutableStateFlow<Set<Int>>(emptySet())
     val randomOrder = MutableStateFlow(false)
+    val resumeMode = MutableStateFlow(PlayMode.TIMER)
     private val _message = MutableSharedFlow<String>(extraBufferCapacity = 1)
     val message = _message.asSharedFlow()
 
     init {
-        viewModelScope.launch { listId.value = dao.prepareSubject(subject) }
+        viewModelScope.launch {
+            listId.value = dao.prepareSubject(subject)
+            val saved = listenApp.settings.flow.first().let {
+                if (subject == Subject.CHINESE) it.lastChinese else it.lastRead
+            }
+            selected.value = saved.units
+            randomOrder.value = saved.random
+            resumeMode.value = saved.mode
+        }
     }
 
     fun toggle(unit: Int) {
@@ -195,15 +208,46 @@ class SubjectHomeViewModel(app: Application, val subject: Subject) : AndroidView
                 _message.emit("勾选的范围里还没有词")
                 return@launch
             }
-            val ordered = if (randomOrder.value) items.shuffled() else items.sortedWith(
-                compareBy({ unitSlot(it.unitName).let { slot -> if (slot == 0) 10_000 else slot } }, { it.position }, { it.id }),
-            )
+            val ordered = orderWords(items, randomOrder.value)
+            val cue = listenApp.settings.flow.first().englishCue
+            resumeMode.value = mode
+            listenApp.settings.update { current ->
+                val play = LastPlay(chosen, randomOrder.value, mode, cue)
+                if (subject == Subject.CHINESE) current.copy(lastChinese = play) else current.copy(lastRead = play)
+            }
+            val action = if (subject == Subject.ENGLISH) "认读" else "听写"
             listenApp.practice.set(
                 listId = id,
-                title = subjectLabel(subject.name),
+                title = subjectLabel(subject.name) + action,
                 mode = mode,
                 words = ordered,
                 backRoute = "subject/${subject.name}",
+            )
+            _message.emit("open-session")
+        }
+    }
+
+    fun startSavedDrill() {
+        viewModelScope.launch {
+            val saved = listenApp.settings.flow.first().lastDrill
+            if (saved.units.isEmpty()) {
+                _message.emit("先到默写里勾选单元")
+                return@launch
+            }
+            val id = dao.prepareEnglishDrills()
+            val items = dao.words(id).filter { unitSlot(it.unitName) in saved.units }
+            if (items.isEmpty()) {
+                _message.emit("上次的默写单元里还没有题")
+                return@launch
+            }
+            listenApp.practice.set(
+                listId = id,
+                title = drillTitle(saved.units),
+                mode = saved.mode,
+                words = orderWords(items, saved.random),
+                backRoute = "subject/${Subject.ENGLISH.name}",
+                englishCue = saved.cue,
+                hideAnswer = true,
             )
             _message.emit("open-session")
         }
@@ -237,6 +281,18 @@ class SubjectHomeViewModelFactory(
     }
 }
 
+private fun orderWords(items: List<WordEntity>, random: Boolean): List<WordEntity> {
+    if (random) return items.shuffled()
+    return items.sortedWith(
+        compareBy({ unitSlot(it.unitName).let { slot -> if (slot == 0) 10_000 else slot } }, { it.position }, { it.id }),
+    )
+}
+
+private fun drillTitle(units: Set<Int>): String {
+    val only = units.filter { it > 0 }.singleOrNull()
+    return if (only != null) "默写练习 第${only}单元" else "默写练习"
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SubjectHomeScreen(
@@ -259,6 +315,7 @@ fun SubjectHomeScreen(
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val selected by viewModel.selected.collectAsStateWithLifecycle()
     val random by viewModel.randomOrder.collectAsStateWithLifecycle()
+    val resumeMode by viewModel.resumeMode.collectAsStateWithLifecycle()
     val snackbar = remember { SnackbarHostState() }
     LaunchedEffect(Unit) {
         viewModel.message.collect { text ->
@@ -268,6 +325,15 @@ fun SubjectHomeScreen(
     val counts = words.groupingBy { unitSlot(it.unitName) }.eachCount()
     val lessonCount = if (subject == Subject.CHINESE) CHINESE_UNIT_COUNT else UNIT_COUNT
     val lessonLabel = if (subject == Subject.CHINESE) "课" else "单元"
+    val action = if (subject == Subject.ENGLISH) "认读" else "听写"
+    val playable = selected.filter { (counts[it] ?: 0) > 0 }.toSet()
+    val savedPlay = if (subject == Subject.CHINESE) settings.lastChinese else settings.lastRead
+    val currentPlay = LastPlay(selected, random, resumeMode, settings.englishCue)
+    val sameAsLast = savedPlay.units.isNotEmpty() &&
+        savedPlay.units == currentPlay.units &&
+        savedPlay.random == currentPlay.random &&
+        savedPlay.mode == currentPlay.mode &&
+        (subject != Subject.ENGLISH || savedPlay.cue == currentPlay.cue)
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         snackbarHost = { SnackbarHost(snackbar) },
@@ -304,6 +370,29 @@ fun SubjectHomeScreen(
             contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
+            if (playable.isNotEmpty()) {
+                item {
+                    Card(
+                        onClick = { viewModel.start(resumeMode) },
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+                    ) {
+                        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                            Text(
+                                if (sameAsLast) "继续$action" else "开始$action",
+                                style = MaterialTheme.typography.titleLarge,
+                            )
+                            Text(
+                                playCaption(currentPlay.copy(units = playable), subject == Subject.CHINESE, subject == Subject.ENGLISH),
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            )
+                            Text(
+                                "听到「嘀」就写在本子上，不用看手机。写完这一条，下一题会接着读。",
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            )
+                        }
+                    }
+                }
+            }
             item {
                 Card(
                     onClick = onMistakes,
@@ -320,23 +409,38 @@ fun SubjectHomeScreen(
             }
             if (subject == Subject.ENGLISH) {
                 item {
-                    Card(
-                        onClick = onDrills,
-                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer),
-                    ) {
-                        Column(Modifier.padding(16.dp)) {
-                            Text("默写练习", style = MaterialTheme.typography.titleLarge)
+                    val drill = settings.lastDrill
+                    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)) {
+                        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                            Text("默写", style = MaterialTheme.typography.titleLarge)
                             Text(
-                                "五上第 1 到 4 单元。听中文，写英文。和单词表分开。",
+                                "听中文，在纸上写英文。播放时不报英文，也不显示答案。",
                                 color = MaterialTheme.colorScheme.onTertiaryContainer,
                             )
+                            if (drill.units.isNotEmpty()) {
+                                Text(
+                                    playCaption(drill, chinese = false, withCue = true),
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                                )
+                                Button(onClick = viewModel::startSavedDrill, modifier = Modifier.fillMaxWidth()) {
+                                    Text("继续默写")
+                                }
+                            }
+                            TextButton(onClick = onDrills) { Text(if (drill.units.isEmpty()) "去选单元" else "换单元") }
                         }
                     }
+                }
+                item {
+                    Text("认读", style = MaterialTheme.typography.titleLarge)
+                    Text(
+                        "这里会报出英文，用来认单词。要默写用上面那一块。",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
                 }
             }
             item {
                 Text(
-                    "勾选${lessonLabel}后播放，可以多选。点进去可以录入。没有词的${lessonLabel}会显示为空。",
+                    "勾选${lessonLabel}后$action，可以多选。点进去可以录入。没有词的${lessonLabel}会显示为空。",
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
@@ -368,9 +472,9 @@ fun SubjectHomeScreen(
             }
             item {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-                    Button(onClick = { viewModel.start(PlayMode.TIMER) }, modifier = Modifier.weight(1f)) { Text("定时听写") }
+                    Button(onClick = { viewModel.start(PlayMode.TIMER) }, modifier = Modifier.weight(1f)) { Text("定时$action") }
                     FilledTonalButton(onClick = { viewModel.start(PlayMode.VOICE) }, modifier = Modifier.weight(1f)) {
-                        Text("说完再继续")
+                        Text(if (subject == Subject.ENGLISH) "说完再认读" else "说完再继续")
                     }
                 }
             }

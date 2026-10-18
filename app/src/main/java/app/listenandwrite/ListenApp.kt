@@ -61,6 +61,9 @@ class PracticeHolder {
     /** 本次播放的英语报法。空则用设置里的报法。默写练习传报中文，不改词表设置。 */
     var englishCue: EnglishCue? = null
 
+    /** 默写不在播放时露出答案。认读和语文仍可按住查看。 */
+    var hideAnswer: Boolean = false
+
     fun set(
         listId: Long,
         title: String,
@@ -68,12 +71,14 @@ class PracticeHolder {
         words: List<WordEntity>,
         backRoute: String = "",
         englishCue: EnglishCue? = null,
+        hideAnswer: Boolean = false,
     ) {
         this.listId = listId
         this.title = title
         this.mode = mode
         this.words = words
         this.englishCue = englishCue
+        this.hideAnswer = hideAnswer
         if (backRoute.isNotEmpty()) this.backRoute = backRoute
     }
 }

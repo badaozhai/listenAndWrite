@@ -275,12 +275,12 @@ fun ListDetailScreen(
                         onClick = { viewModel.start(PlayMode.TIMER) },
                         modifier = Modifier.weight(1f),
                         enabled = !busy,
-                    ) { Text("定时听写") }
+                    ) { Text("定时${playAction(list?.subject)}") }
                     FilledTonalButton(
                         onClick = { viewModel.start(PlayMode.VOICE) },
                         modifier = Modifier.weight(1f),
                         enabled = !busy,
-                    ) { Text("说完再继续") }
+                    ) { Text(voiceAction(list?.subject)) }
                 }
             }
             item {
@@ -522,6 +522,18 @@ fun EditWordDialog(
         confirmButton = { TextButton(onClick = { onSave(text, chosen, meaning, contrast, unit) }) { Text("保存") } },
         dismissButton = { TextButton(onClick = onDismiss) { Text("取消") } },
     )
+}
+
+private fun playAction(subject: String?): String = when (subject) {
+    Subject.ENGLISH.name -> "认读"
+    DRILL_SUBJECT -> "默写"
+    else -> "听写"
+}
+
+private fun voiceAction(subject: String?): String = when (subject) {
+    Subject.ENGLISH.name -> "说完再认读"
+    DRILL_SUBJECT -> "说完再默写"
+    else -> "说完再继续"
 }
 
 private fun studyHint(subject: String?): String {

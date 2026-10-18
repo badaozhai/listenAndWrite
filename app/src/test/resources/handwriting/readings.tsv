@@ -1,0 +1,5 @@
+# kind	file	expected	seen	confidence
+wrong	wrong-yi.png	己	已	0
+messy	messy-wei.png	未	末	0.2
+right	right-ji.png	己	己	0.95
+sheet	sheet.png			

@@ -150,7 +150,15 @@ fun SessionScreen(onBack: () -> Unit, onFinished: (String) -> Unit) {
                 }
             }
             if (ui.phase != Phase.Empty) {
-                HoldToPeek(ui.answer)
+                if (ui.hideAnswer) {
+                    Text(
+                        "默写不显示答案。听到「嘀」就写，写完会自动读下一题。",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center,
+                    )
+                } else {
+                    HoldToPeek(ui.answer)
+                }
                 if (ui.phase == Phase.Paused) {
                     Button(onClick = viewModel::resume, modifier = Modifier.fillMaxWidth().height(72.dp)) {
                         Text("继续", style = MaterialTheme.typography.titleLarge)

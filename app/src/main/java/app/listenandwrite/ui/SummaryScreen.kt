@@ -57,14 +57,21 @@ class SummaryViewModel(app: Application) : AndroidViewModel(app) {
     fun replay(onlyWrong: Boolean): Boolean {
         val source = if (onlyWrong) words.filter { it.id in wrong } else words
         if (source.isEmpty()) return false
-        practice.set(listId, title, mode, source, englishCue = practice.englishCue)
+        practice.set(
+            listId,
+            title,
+            mode,
+            source,
+            englishCue = practice.englishCue,
+            hideAnswer = practice.hideAnswer,
+        )
         return true
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SummaryScreen(onBack: () -> Unit, onAgain: () -> Unit) {
+fun SummaryScreen(onBack: () -> Unit, onAgain: () -> Unit, onGrade: () -> Unit) {
     val app = LocalContext.current.applicationContext as ListenApp
     val viewModel: SummaryViewModel = viewModel()
     if (viewModel.words.isEmpty() || app.practice.listId == 0L && viewModel.words.isEmpty()) {
@@ -87,6 +94,9 @@ fun SummaryScreen(onBack: () -> Unit, onAgain: () -> Unit) {
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+                Button(onClick = onGrade, modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
+                    Text("拍照批改")
+                }
             }
             itemsIndexed(viewModel.words) { index, word ->
                 Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
