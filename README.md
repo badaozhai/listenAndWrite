@@ -1,6 +1,13 @@
 # 听写助手
 
-给小学生用的安卓听写。语文和英语分开。词在手机里读出来，人在本子上写。读的时候不用看屏幕。
+给小学生用的听写。语文和英语分开。词在手机里读出来，人在本子上写。读的时候不用看屏幕。
+
+根目录分成两块：
+
+| 目录 | 内容 |
+| --- | --- |
+| `Android` | 现在能用的安卓工程 |
+| `ios` | iOS 工程。打开先选语文或英语。词表和批改规则与安卓相同 |
 
 语音是手机系统实时合成的，没有预存的录音。
 
@@ -53,7 +60,7 @@
 
 ## 代码
 
-包名 `app.listenandwrite`。界面是 Jetpack Compose，词存在 Room，设置在 DataStore。
+安卓包名 `app.listenandwrite`。界面是 Jetpack Compose，词存在 Room，设置在 DataStore。源码在 `Android/app/src/main/java/app/listenandwrite/`。
 
 | 目录 | 内容 |
 | --- | --- |
@@ -67,16 +74,19 @@
 
 ## 构建和测试
 
-需要 JDK 17。Android SDK 路径写在本机的 `local.properties` 里，这个文件不提交。`minSdk` 26，`compileSdk` 35。
+在 `Android` 目录里构建。需要 JDK 17。Android SDK 路径写在本机的 `Android/local.properties` 里，这个文件不提交。`minSdk` 26，`compileSdk` 35。
 
 ```bash
+cd Android
 ./gradlew testDebugUnitTest
 ./gradlew assembleDebug
 ```
 
-调试包在 `app/build/outputs/apk/debug/app-debug.apk`。
+调试包在 `Android/app/build/outputs/apk/debug/app-debug.apk`。
 
-单元测试覆盖词表条数、播放计时、易混字、批改判定，以及下面的手写样本。`app/src/androidTest` 里有一份把三张中文手写交给真机识别的探测，不作为日常门禁。
+iOS 用 Xcode 打开 `ios/ListenAndWrite.xcodeproj`，方案是 `ListenAndWrite`，部署目标 iOS 17。词表在构建时从安卓的三份 Kotlin 词表拷进包里。语文朗读比设置里的语速再慢一档。听写页底部的播放按钮是固定的，不用滑到课表底下。
+
+单元测试覆盖词表条数、播放计时、易混字、批改判定，以及下面的手写样本。`Android/app/src/androidTest` 里有一份把三张中文手写交给真机识别的探测，不作为日常门禁。
 
 ## 手写样本
 
@@ -84,8 +94,8 @@
 
 | 目录 | 内容 |
 | --- | --- |
-| `app/src/test/resources/chinese-chars` | 语文词表里 420 个字。每个字有正字和不规范两种。能对上易混字的还有一张错字 |
-| `app/src/test/resources/english-hands` | 英语 284 条收成 253 个拼写。每个拼写有印刷体、手写体、断笔、错一个字母 |
-| `app/src/test/resources/handwriting` | 最早的三张对照：己写成已、未的笔画残缺、写对的己 |
+| `Android/app/src/test/resources/chinese-chars` | 语文词表里 420 个字。每个字有正字和不规范两种。能对上易混字的还有一张错字 |
+| `Android/app/src/test/resources/english-hands` | 英语 284 条收成 253 个拼写。每个拼写有印刷体、手写体、断笔、错一个字母 |
+| `Android/app/src/test/resources/handwriting` | 最早的三张对照：己写成已、未的笔画残缺、写对的己 |
 
 目录里的 `catalog.tsv` 或 `readings.tsv` 写着每张图对应的词和识别结果。测试读这些标注，调用 `gradeOne`，不在单元测试里跑识别器。
